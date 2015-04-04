@@ -1,0 +1,12 @@
+<div>
+    <h1><a href="/">Adoptable Kitties!</a></h1>
+</div>
+
+{% for cat in cats %}
+    <div>
+        <p>Name: {{ cat.name }}</p>
+        <p>Age: {{ cat.age }}</p>
+        <p>Color: {{ cat.color }}</p>
+        <hr>
+    </div>
+{% endfor %}
