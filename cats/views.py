@@ -3,7 +3,8 @@ from .models import Cat
 # Create your views here.
 
 def about(request):
-    return render(request, 'cats/about.html', {})
+    cat = Cat.objects.filter(pict_url__startswith='http:/').order_by('?')[0]
+    return render(request, 'cats/about.html', {'cat':cat})
 
 def adoptable_list(request):
     cats= Cat.objects.filter(adopted=False).order_by('name')
