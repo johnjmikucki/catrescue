@@ -4,7 +4,7 @@
 
 {% for cat in cats %}
     <div>
-        <p>Name: {{ cat.name }}</p>
+        <p>Name: <a href="{% url 'cats.views.detail' id=cat.id %}">{{ cat.name }}</a></p>
         <p>Age: {{ cat.age }}</p>
         <p>Color: {{ cat.color }}</p>
         <hr>

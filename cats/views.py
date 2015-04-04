@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Cat
 # Create your views here.
 
@@ -8,3 +8,7 @@ def about(request):
 def adoptable_list(request):
     cats= Cat.objects.filter(adopted=False).order_by('name')
     return render(request, 'cats/adoptable.html',{'cats':cats})
+
+def detail(request, id):
+    cat = get_object_or_404(Cat, id=id)
+    return render(request, 'cats/detail.html', {'cat':cat})
